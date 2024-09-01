@@ -58,6 +58,11 @@ export const columns: ColumnDef<Appointment>[] = [
       const doctor = Doctors.find(
         (doctor) => doctor.name === appointment.primaryPhysician
       );
+      // console.log('Doctor:', doctor);
+
+      console.log('appointment:', appointment);
+      console.log('Primary Physician:', appointment.primaryPhysician);
+      console.log('Doctor Names:', Doctors.map(doc => doc.name));
 
       return (
         <div className="flex items-center gap-3">
