@@ -31,7 +31,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof PatientFormValidation>>({
-    resolver: zodResolver(PatientFormValidation), 
+    resolver: zodResolver(PatientFormValidation),
     defaultValues: {
       ...PatientFormDefaultValues,
       name: user.name,
@@ -57,7 +57,7 @@ const RegisterForm = ({ user }: { user: User }) => {
       formData.append("blobFile", blobFile);
       formData.append("fileName", values.identificationDocument[0].name);
     }
-    
+
     try {
       const patientData = {
         userId: user.$id,
@@ -82,12 +82,12 @@ const RegisterForm = ({ user }: { user: User }) => {
         identificationDocument: values.identificationDocument
           ? formData
           : undefined,
-          privacyConsent: values.privacyConsent,
-        };
+        privacyConsent: values.privacyConsent,
+      };
 
-        const newPatient = await registerPatient(patientData);
-        
-        if (newPatient) {
+      const newPatient = await registerPatient(patientData);
+
+      if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
     } catch (error) {
@@ -168,9 +168,7 @@ const RegisterForm = ({ user }: { user: User }) => {
                   >
                     {GenderOptions.map((option, i) => (
                       <div key={option + i} className="radio-group ">
-                        <RadioGroupItem 
-                        value={option} 
-                        id={option} />
+                        <RadioGroupItem value={option} id={option} />
                         <Label htmlFor={option} className="cursor-pointer ">
                           {option}
                         </Label>
