@@ -60,10 +60,6 @@ export const columns: ColumnDef<Appointment>[] = [
       );
       // console.log('Doctor:', doctor);
 
-      console.log('appointment:', appointment);
-      console.log('Primary Physician:', appointment.primaryPhysician);
-      console.log('Doctor Names:', Doctors.map(doc => doc.name));
-
       return (
         <div className="flex items-center gap-3">
           <Image
